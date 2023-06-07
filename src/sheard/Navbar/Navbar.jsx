@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 
@@ -10,6 +12,16 @@ const Navbar = () => {
         <li><Link>Classes</Link></li>
         <li><Link> Dashboard</Link></li>
     </>
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+                alert("Logout successful")
+            });
+    }
 
 
 
@@ -25,15 +37,17 @@ const Navbar = () => {
                             {item}
                         </ul>
                     </div>
-                    <p className="btn btn-ghost normal-case text-xl"> <img className="w-[50px] bg-slate-200 " src="https://media.istockphoto.com/id/1409980938/photo/3d-hand-holding-trophy-cup-business-success-concept-1st-place-award-character-with-gold.jpg?s=612x612&w=0&k=20&c=4xlgOqAbIqGezhu_A7YmdtEQBx5hYrAT4JgbjXWwI2E="  /> Sports-Academi</p>
+                    <p className="btn btn-ghost normal-case text-xl"> <img className="w-[50px] bg-slate-200 " src="https://media.istockphoto.com/id/1409980938/photo/3d-hand-holding-trophy-cup-business-success-concept-1st-place-award-character-with-gold.jpg?s=612x612&w=0&k=20&c=4xlgOqAbIqGezhu_A7YmdtEQBx5hYrAT4JgbjXWwI2E=" /> Sports-Academi</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                       {item}
+                        {item}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="btn">Login</Link>
+                    {user ? <Link onClick={handleLogout} className="btn bg-purple-900">Logout</Link> :
+                        <Link to='/login' className="btn">Login</Link>
+                    }
                 </div>
             </div>
         </>

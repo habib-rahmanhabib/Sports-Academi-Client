@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "sport": "Cricket",
+        "rating": 4.8,
+        "price": 50.0
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "janesmith@example.com",
+        "sport": "Basketball",
+        "rating": 4.5,
+        "price": 60.0
+    },
+    {
+        "id": 3,
+        "name": "Michael Johnson",
+        "email": "michaeljohnson@example.com",
+        "sport": "Soccer",
+        "rating": 4.9,
+        "price": 55.0
+    },
+    {
+        "id": 4,
+        "name": "Sarah Thompson",
+        "email": "sarahthompson@example.com",
+        "sport": "Badminton",
+        "rating": 4.6,
+        "price": 45.0
+    },
+    {
+        "id": 5,
+        "name": "David Miller",
+        "email": "davidmiller@example.com",
+        "sport": "Cricket",
+        "rating": 4.7,
+        "price": 50.0
+    },
+    {
+        "id": 6,
+        "name": "Emily Wilson",
+        "email": "emilywilson@example.com",
+        "sport": "Basketball",
+        "rating": 4.5,
+        "price": 60.0
+    }
+]

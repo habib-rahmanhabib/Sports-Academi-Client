@@ -1,45 +1,64 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
-    return (
-        <div className="hero min-h-screen bg-base-200">
-           
 
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-teal-800 text-white">
-                    <div className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Name</span>
-                            </label>
-                            <input type="text" placeholder="name" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Email</span>
-                            </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Password</span>
-                            </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
-                            
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Photo URL</span>
-                            </label>
-                            <input type="text" placeholder="Photo URL" className="input input-bordered" />
-                            
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-primary">signup</button>
-                            <p>you have a account go <Link to='/login' className="text-lime-400">Login</Link></p>
-                        </div>
-                    </div>
-                </div>
-           
+const SignUp = () => {
+    const { createUser } = useContext(AuthContext)
+
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        // console.log(name, password, email, photo)
+
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+    return (
+        <div className='container w-50 mx-auto  rounded-lg py-2'>
+            <h2 className=' w-80 py-2 mt-2 mx-auto text-purple-100 font-bold text-lg rounded-lg bg-purple-900 text-center'>Please Register Your Account </h2>
+
+            <form onSubmit={handleRegister} className="form-control w-full max-w-xs mx-auto shadow-lg p-5 rounded">
+                <label className="label">
+                    <span className="label-text font-bold">What is your name ?</span>
+
+                </label>
+                <input type="text" name='name' placeholder="Type here" required className="input input-bordered w-full max-w-xs" />
+
+                <label className="label">
+                    <span className="label-text font-bold">What is your image URL ?</span>
+
+                </label>
+                <input type="text" name='photo' placeholder="Type here" required className="input input-bordered w-full max-w-xs" />
+
+                <label className="label">
+                    <span className="label-text font-bold">What is your Email ?</span>
+
+                </label>
+                <input type="email" name='email' placeholder="Type here" required className="input input-bordered w-full max-w-xs" />
+
+                <label className="label">
+                    <span className="label-text font-bold">What is your Password?</span>
+
+                </label>
+                <input type="password" name='password' placeholder="Type here" required className="input input-bordered w-full max-w-xs" />
+
+                <button className='btn btn-accent mt-2' type='submit'>Register</button>
+
+                <p>Already have an account <span> <Link className='link link-primary' to="/login">Login</Link></span></p>
+
+            </form>
         </div>
     );
 };
