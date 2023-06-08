@@ -1,0 +1,106 @@
+[
+    {
+      "id": 1,
+      "sport": "Cricket",
+      "instructor": "John Doe",
+      "availableSeats": 15,
+      "price": 10.99,
+      "image": "https://t3.ftcdn.net/jpg/05/40/95/20/240_F_540952029_9L5XzutuceTtVZqerC2WmcjujXyYEXWR.jpg"
+    },
+    {
+      "id": 2,
+      "sport": "Soccer",
+      "instructor": "Jane Smith",
+      "availableSeats": 20,
+      "price": 12.99,
+      "image": "soccer.jpg"
+    },
+    {
+      "id": 3,
+      "sport": "Badminton",
+      "instructor": "Mike Johnson",
+      "availableSeats": 10,
+      "price": 8.99,
+      "image": "badminton.jpg"
+    },
+    {
+      "id": 4,
+      "sport": "Basketball",
+      "instructor": "Emily Davis",
+      "availableSeats": 12,
+      "price": 9.99,
+      "image": "basketball.jpg"
+    },
+    {
+      "id": 5,
+      "sport": "Cricket",
+      "instructor": "David Anderson",
+      "availableSeats": 18,
+      "price": 11.99,
+      "image": "cricket.jpg"
+    },
+    {
+      "id": 6,
+      "sport": "Soccer",
+      "instructor": "Sarah Thompson",
+      "availableSeats": 25,
+      "price": 14.99,
+      "image": "soccer.jpg"
+    },
+    {
+      "id": 7,
+      "sport": "Badminton",
+      "instructor": "Michael Brown",
+      "availableSeats": 8,
+      "price": 7.99,
+      "image": "badminton.jpg"
+    },
+    {
+      "id": 8,
+      "sport": "Basketball",
+      "instructor": "Olivia Johnson",
+      "availableSeats": 10,
+      "price": 8.99,
+      "image": "basketball.jpg"
+    },
+    {
+      "id": 9,
+      "sport": "Cricket",
+      "instructor": "Daniel Wilson",
+      "availableSeats": 15,
+      "price": 10.99,
+      "image": "cricket.jpg"
+    },
+    {
+      "id": 10,
+      "sport": "Soccer",
+      "instructor": "Robert Garcia",
+      "availableSeats": 4,
+      "price": 6.99,
+      "image": "soccer.jpg"
+    },
+    {
+      "id": 11,
+      "sport": "Badminton",
+      "instructor": "Maria Rodriguez",
+      "availableSeats": 22,
+      "price": 13.99,
+      "image": "badminton.jpg"
+    },
+    {
+      "id": 12,
+      "sport": "Basketball",
+      "instructor": "Jason Thompson",
+      "availableSeats": 10,
+      "price": 8.99,
+      "image": "basketball.jpg"
+    },
+    {
+      "id": 13,
+      "sport": "Cricket",
+      "instructor": "Adam Wilson",
+      "availableSeats": 15,
+      "price": 10.99,
+      "image": "cricket.jpg"
+    }
+  ]
