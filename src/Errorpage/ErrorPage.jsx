@@ -1,9 +1,13 @@
 
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
         <div>
+            <Helmet>
+                <title>Sports Academi || ErrorPage</title>
+            </Helmet>
             <section className='flex items-center h-screen p-16 bg-purple-100 text-purple-900'>
                 <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
                     <div className='rounded-lg'>

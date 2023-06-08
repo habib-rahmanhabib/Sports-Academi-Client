@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const SignUp = () => {
@@ -26,6 +27,10 @@ const SignUp = () => {
             })
     }
     return (
+        <>
+        <Helmet>
+            <title>Sports Academi || SignUp</title>
+        </Helmet>
         <div className='container w-50 mx-auto  rounded-lg py-2'>
             <h2 className=' w-80 py-2 mt-2 mx-auto text-purple-100 font-bold text-lg rounded-lg bg-purple-900 text-center'>Please Register Your Account </h2>
 
@@ -60,6 +65,7 @@ const SignUp = () => {
 
             </form>
         </div>
+        </>
     );
 };
 
