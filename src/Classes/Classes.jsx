@@ -1,22 +1,16 @@
-import { useEffect, useState } from "react";
+
 import ClassesCart from "./classesCart/ClassesCart";
+
+import useClass from "../hooks/useClass";
 
 
 const Classes = () => {
-    const [classes, setClasses]= useState([])
-    
-    useEffect(()=>{
-      fetch('class.json')
-      .then(res=>res.json())
-      .then(data=>{
-        setClasses(data)
-      })
-    },[])
+  const [classes]=useClass()
 
     return (
         <>
             
-            <div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     classes.map( classCart =><ClassesCart
                         key={classCart.id}
