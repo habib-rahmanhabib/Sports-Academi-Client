@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
 import PopulerInst from "../page/Home/PopulerIns/PopulerInst";
+import useInstructor from "../hooks/useInstructor";
 
 
 
 const Instructors = () => {
-    const [populers, setPopulers] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:5000/instractor')
-            .then(res => res.json())
-            .then(data => {
-                setPopulers(data)
-            })
-
-    }, [])
+    const [populers]=useInstructor()
 
     return (
         <div>
