@@ -42,6 +42,8 @@ const DashBoard = () => {
               My Selected Class <div className="badge badge-secondary"></div>
             </NavLink></li>
 
+            <li><NavLink to='/dashboard/payment-history'><FaWallet></FaWallet> Payment History</NavLink></li>
+
 
 
             <div className="divider"></div>
