@@ -1,16 +1,17 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { app } from '../firebase/firebase.config';
+import axios from 'axios';
 
 
 export const AuthContext = createContext();
 
 const auth = getAuth(app);
 
-const AuthProvider = ({children}) => { 
+const AuthProvider = ({ children }) => {
 
-const [user, setUser] = useState(null);
-const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     const createUser = (email, password) => {
@@ -21,7 +22,7 @@ const [loading, setLoading] = useState(true);
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-    } 
+    }
 
     const logOut = (email, password) => {
         setLoading(true);
@@ -29,43 +30,72 @@ const [loading, setLoading] = useState(true);
     }
     const googleProvider = new GoogleAuthProvider();
 
-    const googleLogin = () =>{
+    const googleLogin = () => {
         signInWithPopup(auth, googleProvider)
-        .then(result => {
-            const loggedInUser = result.user;
-            console.log(loggedInUser)
-            setUser(loggedInUser);
-            
-        })
-        .catch(error => console.log(error.message))
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser)
+                setUser(loggedInUser);
+
+            })
+            .catch(error => console.log(error.message))
     }
 
     // Github sign in function 
 
     const gitHubProvider = new GithubAuthProvider()
-    const githubLogin = () =>{
+    const githubLogin = () => {
         signInWithPopup(auth, gitHubProvider)
-        .then(result => {
-            const loggedInUser = result.user;
-            console.log(loggedInUser)
-            setUser(loggedInUser);
-        })
-        .catch(error => console.log(error.message))
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser)
+                setUser(loggedInUser);
+            })
+            .catch(error => console.log(error.message))
     }
-   
 
-    useEffect( () => {
-       const unsubscribe = onAuthStateChanged( auth,  loggedUser => {
+
+    // useEffect( () => {
+    //    const unsubscribe = onAuthStateChanged( auth,  loggedUser => {
+    //         // console.log('Logged in user inside auth', loggedUser)
+    //         setUser(loggedUser);
+    //         setLoading(false);
+
+    //     })
+
+    //     return () => {
+    //         unsubscribe();
+    //     }
+    // }, [])
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
             // console.log('Logged in user inside auth', loggedUser)
             setUser(loggedUser);
-            setLoading(false);
-            
-        })
-        
+            if (loggedUser) {
+                axios.post('http://localhost:5000/jwt', { email: loggedUser.email })
+                    .then(data => {
+                        // console.log(data.data.token)
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
+            }
+
+        });
+
         return () => {
             unsubscribe();
-        }
-    }, [])
+        };
+    }, []);
+
+
+
+
+
+
     const authInfo = {
         user,
         loading,
