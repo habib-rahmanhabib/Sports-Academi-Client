@@ -7,6 +7,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import useInstructor from '../../../hooks/useInstructor';
 import useClass from '../../../hooks/useClass';
 import ClassesCart from '../../../Classes/classesCart/ClassesCart';
+import ExtraSection from '../ExtraSection/ExtraSection';
 
 const Home = () => {
     const [populers] = useInstructor()
@@ -43,6 +44,8 @@ const Home = () => {
 
             </div>
 
+
+
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     populers.slice(0, 6).map(populer => <PopulerInst
@@ -51,6 +54,11 @@ const Home = () => {
                     ></PopulerInst>)
                 }
             </div>
+
+            {/* extra section */}
+            
+            <ExtraSection></ExtraSection>
+
 
             {/* class section added */}
 

@@ -1,6 +1,7 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useEnroll from "../../hooks/useEnroll";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -56,10 +57,12 @@ const SelectedClass = () => {
             <div className="flex uppercase font-semibold justify-evenly items-center gap-4 mb-2">
                 <h3 className="text-2xl">Total Class: <span className="text-red-500">{cart.length}</span></h3>
                 <h3 className="text-2xl">Total Price: <span className="text-red-500">${amount}</span></h3>
-      
 
+
+                <Link to='/dashboard/payments' >
                     <button className="btn border-0 btn-primary ">Pay Now</button>
-              
+                </Link>
+
             </div>
 
 

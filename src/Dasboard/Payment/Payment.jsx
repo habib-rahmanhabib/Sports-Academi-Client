@@ -4,7 +4,7 @@ import React from 'react';
 
 
 import useEnroll from '../../hooks/useEnroll';
-import PaymentFrom from './PaymentFrom';
+import CheckoutForm from './CheckoutForm';
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment);
@@ -17,7 +17,7 @@ const Payment = () => {
             <h2 className='text-center mb-20 text-sky-500 text-3xl font-bold'>taka o taka</h2>
           
             <Elements stripe={stripePromise}>
-            <PaymentFrom price={price} cart={cart}></PaymentFrom>
+            <CheckoutForm price={price} cart={cart}></CheckoutForm>
             </Elements>
         </div>
     );

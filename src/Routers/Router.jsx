@@ -9,6 +9,7 @@ import Classes from "../Classes/Classes";
 import DashBoard from "../Layout/DashBoard";
 import SelectedClass from "../Dasboard/SelectedClass/SelectedClass";
 import Payment from "../Dasboard/Payment/Payment";
+import MyEnrollClass from "../Dasboard/MyEnrollClass/MyEnrollClass";
 
 
 export const router = createBrowserRouter([
@@ -49,8 +50,12 @@ export const router = createBrowserRouter([
            element:<SelectedClass></SelectedClass>
         },
         {
-          path:'payment',
+          path:'payments',
           element:<Payment></Payment>
+        },
+        {
+          path:'my-enroll-class',
+          element:<MyEnrollClass></MyEnrollClass>
         }
       ]
     }

@@ -1,12 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 import axios from 'axios';
 import { app } from '../firebase/firebase.config';
 
 
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
@@ -43,18 +43,11 @@ const AuthProvider = ({ children }) => {
             .catch(error => console.log(error.message))
     }
 
-    // Github sign in function 
-
-    const gitHubProvider = new GithubAuthProvider()
-    const githubLogin = () => {
-        signInWithPopup(auth, gitHubProvider)
-            .then(result => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser)
-                setUser(loggedInUser);
-            })
-            .catch(error => console.log(error.message))
-    }
+    const updateUserProfile = (name, photo)=>{
+        return updateProfile(auth.currentUser, {
+            displayName:  name, photoURL: photo
+          })
+      }
 
 
     // useEffect( () => {
@@ -105,7 +98,8 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
         googleLogin,
-        githubLogin
+        updateUserProfile
+     
     }
     return (
         <AuthContext.Provider value={authInfo}>

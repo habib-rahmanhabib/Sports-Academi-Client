@@ -38,6 +38,9 @@ const DashBoard = () => {
             <li><NavLink to='/dashboard/selectedclass'><FaShoppingCart></FaShoppingCart>
               My Selected Class <div className="badge badge-secondary"></div>
             </NavLink></li>
+            <li><NavLink to='/dashboard/my-enroll-class'><FaShoppingCart></FaShoppingCart>
+              My Selected Class <div className="badge badge-secondary"></div>
+            </NavLink></li>
 
 
 

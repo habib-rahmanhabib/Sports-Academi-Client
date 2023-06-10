@@ -9,7 +9,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
-const PaymentFrom = ({price, cart}) => {
+const CheckoutForm= ({price, cart}) => {
   // console.log(price)
   const {user} = useContext(AuthContext)
   // console.log(user)
@@ -98,7 +98,7 @@ console.log(clientSecret)
             cartItems: cart.map(item => item._id),
             menuItems: cart.map(item => item.enrollId),
            image: cart.map(item => item.image),
-            className: cart.map(item => item.danceName)
+            className: cart.map(item => item.sport)
           }
           axiosSecure.post('/payments', payment)
           .then(res => {
@@ -128,9 +128,9 @@ console.log(clientSecret)
             style: {
               base: {
                 fontSize: '16px',
-                color: 'white',
+                color: 'black',
                 '::placeholder': {
-                  color: 'white',
+                  color: 'black',
                 },
               },
               invalid: {
@@ -156,4 +156,4 @@ console.log(clientSecret)
     );
 };
 
-export default PaymentFrom;
+export default CheckoutForm;
