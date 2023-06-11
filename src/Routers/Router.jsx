@@ -11,6 +11,8 @@ import SelectedClass from "../Dasboard/SelectedClass/SelectedClass";
 import Payment from "../Dasboard/Payment/Payment";
 import MyEnrollClass from "../Dasboard/MyEnrollClass/MyEnrollClass";
 import PaymentHistory from "../Dasboard/PaymentHistory/PaymentHistory";
+import AllUsers from "../Dasboard/allusers/AllUsers";
+import AdminRoute from "./AdminRouter";
 
 
 export const router = createBrowserRouter([
@@ -61,6 +63,10 @@ export const router = createBrowserRouter([
         {
           path:'payment-history',
           element:<PaymentHistory></PaymentHistory>
+        },
+        {
+          path:'all-users',
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }

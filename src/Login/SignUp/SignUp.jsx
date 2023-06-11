@@ -50,12 +50,13 @@ const Signin = () => {
                                    
                                 }
                             });
-                            navigate("/");
+                            // navigate("/");
                     })
                     .then((error) => {
                         console.log(error);
 
                     });
+                    navigate("/");
             })
             .catch((error) => {
 
@@ -70,7 +71,7 @@ const Signin = () => {
             </Helmet>
             <div className=" mt-11" data-aos="fade-up">
                 <div className=" w-10/12 md:w-4/12 lg:w-5/12 mx-auto  ">
-                    <div className="card  w-full  shadow-2xl bg-black bg-opacity-50">
+                    <div className="card  w-full  shadow-2xl bg-green-800">
                         <h2 className="text-center pt-5 text-3xl text-sky-500 ">
                             Please Sign up
                         </h2>
@@ -190,7 +191,7 @@ const Signin = () => {
                                     />
                                 </div>
                             </form>
-                            <p className="mt-3">
+                            <p className="mt-3 text-white">
                                 already have an acccout?{" "}
                                 <Link to="/login">
                                     {" "}

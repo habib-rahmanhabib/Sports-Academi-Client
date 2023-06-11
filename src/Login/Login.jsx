@@ -47,8 +47,8 @@ const Login = () => {
             </Helmet>
             <div className=" mt-11" data-aos="fade-up" >
                 <div className="  w-10/12 md:w-4/12 lg:w-5/12 mx-auto  ">
-                    <div className="card  w-full  shadow-2xl bg-black bg-opacity-50">
-                        <h2 className="text-center pt-5 text-3xl text-sky-500 ">
+                    <div className="card  w-full  shadow-2xl bg-green-900">
+                        <h2 className="text-center pt-5 text-3xl text-white ">
                             Please Login
                         </h2>
                         <div className="card-body">
@@ -83,8 +83,8 @@ const Login = () => {
                                     />
                                 </div>
                             </form>
-                            <p className="mt-3">Didn't have an acccout?  <Link to='/signup'> <span className="text-red-500" >Signup</span></Link> </p>
-                            <div className="divider">OR</div>
+                            <p className="mt-3 text-white">Didn't have an acccout?  <Link to='/signup'> <span className="text-red-500" >Signup</span></Link> </p>
+                            <div className="divider text-white">OR</div>
                           <SocialLogin></SocialLogin>
                         </div>
                     </div>

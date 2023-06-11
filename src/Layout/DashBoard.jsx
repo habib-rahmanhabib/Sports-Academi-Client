@@ -43,6 +43,7 @@ const DashBoard = () => {
             </NavLink></li>
 
             <li><NavLink to='/dashboard/payment-history'><FaWallet></FaWallet> Payment History</NavLink></li>
+            <li><NavLink to='/dashboard/all-users'><FaWallet></FaWallet>All Users</NavLink></li>
 
 
 

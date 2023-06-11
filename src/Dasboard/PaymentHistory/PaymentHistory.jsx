@@ -28,7 +28,7 @@ const PaymentHistory = () => {
                
               </tr>
             </thead>
-            <tbody className='text-xs'>
+            <tbody className='text-xs text-black'>
               {myEnroll.map((item, index) => (
                 <tr  
                  key={item._id}>
