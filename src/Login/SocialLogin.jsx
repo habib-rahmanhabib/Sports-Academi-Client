@@ -33,7 +33,9 @@ const SocialLogin = () => {
             .then(() => {
                 navigate(from, { replace: true });
             });
+           
         });
+        
       };
 
     return (

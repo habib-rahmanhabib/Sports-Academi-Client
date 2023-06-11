@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaCalendar, FaShoppingCart, FaWallet } from 'react-icons/fa'
+import { FaHome, FaShoppingCart, FaWallet } from 'react-icons/fa'
 import { Helmet } from "react-helmet-async";
+import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 
 
 const DashBoard = () => {
 
-
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
 
   return (
@@ -33,30 +36,44 @@ const DashBoard = () => {
             {/* Sidebar content here */}
 
 
-            <li><NavLink to='/'><FaHome></FaHome>User Home</NavLink></li>
+        {
+          isAdmin ?
+          (
+            <>
+            <li><NavLink to='/'><FaHome></FaHome>Admin Home</NavLink></li>
+          <li><NavLink to='/dashboard/all-users'><FaWallet></FaWallet>All Users</NavLink></li>
+          </>
+          )
+          :
+          isInstructor ?
+        (
+          <>
+          <li><NavLink to='/'><FaHome></FaHome>Instructor Home</NavLink></li>
+          <li><NavLink to='/dashboard/add-class-page'><FaWallet></FaWallet>Add Class</NavLink></li>
+          <li><NavLink to='/dashboard/my-class'><FaShoppingCart></FaShoppingCart>  
+          My Class          
+            </NavLink></li>
 
+          </>
+            
+        )
+          :
+          (
+            <>
+            <li><NavLink to='/'><FaHome></FaHome>User Home</NavLink></li>
             <li><NavLink to='/dashboard/selectedclass'><FaShoppingCart></FaShoppingCart>
               My Selected Class <div className="badge badge-secondary"></div>
             </NavLink></li>
             <li><NavLink to='/dashboard/my-enroll-class'><FaShoppingCart></FaShoppingCart>
               My Enrollmet class <div className="badge badge-secondary"></div>
             </NavLink></li>
-
             <li><NavLink to='/dashboard/payment-history'><FaWallet></FaWallet> Payment History</NavLink></li>
-            <li><NavLink to='/dashboard/all-users'><FaWallet></FaWallet>All Users</NavLink></li>
-            <li><NavLink to='/dashboard/add-class-page'><FaWallet></FaWallet>Add Users</NavLink></li>
+          
+          </>
+          )
+        }
 
-
-
-            <div className="divider"></div>
-
-
-            <li><NavLink to='/deshbord/userhome'><FaHome></FaHome>User Home</NavLink></li>
-            <li><NavLink to='/dashboard/reservation'><FaCalendar></FaCalendar>About Me</NavLink></li>
-            <li><NavLink to='/dashboard/history'><FaWallet></FaWallet> Payment History</NavLink></li>
-            <li><NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart>
-              Shoping Cart <div className="badge badge-secondary"></div>
-            </NavLink></li>
+      
           </ul>
 
         </div>

@@ -14,6 +14,7 @@ import PaymentHistory from "../Dasboard/PaymentHistory/PaymentHistory";
 import AllUsers from "../Dasboard/allusers/AllUsers";
 import AdminRoute from "./AdminRouter";
 import AddClass from "../Dasboard/addclass/AddClass";
+import MyClasses from "../Dasboard/Myclass/MyClasses";
 
 
 export const router = createBrowserRouter([
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
         {
           path:'add-class-page',
           element:<AddClass></AddClass>
+        },
+        {
+          path:'my-class',
+          element:<MyClasses></MyClasses>
         }
       ]
     }
