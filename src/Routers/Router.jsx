@@ -13,6 +13,7 @@ import MyEnrollClass from "../Dasboard/MyEnrollClass/MyEnrollClass";
 import PaymentHistory from "../Dasboard/PaymentHistory/PaymentHistory";
 import AllUsers from "../Dasboard/allusers/AllUsers";
 import AdminRoute from "./AdminRouter";
+import AddClass from "../Dasboard/addclass/AddClass";
 
 
 export const router = createBrowserRouter([
@@ -67,8 +68,13 @@ export const router = createBrowserRouter([
         {
           path:'all-users',
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path:'add-class-page',
+          element:<AddClass></AddClass>
         }
       ]
     }
 
   ]);
+

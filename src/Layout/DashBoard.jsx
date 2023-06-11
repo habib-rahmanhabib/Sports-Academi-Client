@@ -39,11 +39,12 @@ const DashBoard = () => {
               My Selected Class <div className="badge badge-secondary"></div>
             </NavLink></li>
             <li><NavLink to='/dashboard/my-enroll-class'><FaShoppingCart></FaShoppingCart>
-              My Selected Class <div className="badge badge-secondary"></div>
+              My Enrollmet class <div className="badge badge-secondary"></div>
             </NavLink></li>
 
             <li><NavLink to='/dashboard/payment-history'><FaWallet></FaWallet> Payment History</NavLink></li>
             <li><NavLink to='/dashboard/all-users'><FaWallet></FaWallet>All Users</NavLink></li>
+            <li><NavLink to='/dashboard/add-class-page'><FaWallet></FaWallet>Add Users</NavLink></li>
 
 
 
