@@ -30,11 +30,11 @@ const AddClass = () => {
       .then((imgResponse) => {
         if (imgResponse.success) {
           const imgUrl = imgResponse.data.display_url;
-          const { price, instructorName, danceName, rating,  availableSeats, email } = data;
+          const { price, instructorName, sport, rating,  availableSeats, email } = data;
           const newItem = {
             instructorName,
             price: parseFloat(price),
-            danceName,
+            sport,
             availableSeats: parseFloat(availableSeats),
             image: imgUrl,
             email,
@@ -58,17 +58,17 @@ const AddClass = () => {
       });
   };
 
-//   danceName, image, instructorName, price, rating, availableSeats
+//   sport, image, instructorName, price, rating, availableSeats
 
   console.log(errors);
   return (
-    <div data-aos="fade-up" className=" w-full p-11 ">
-      <h2 className="text-sky-500 text-4xl font-bold text-center my-16">Add Dance Information</h2>
+    <div data-aos="fade-up" className=" w-full p-11 bg-sky-100 ">
+      <h2 className="text-sky-500 text-4xl font-bold text-center my-16">Add sport Information</h2>
       <form  onSubmit={handleSubmit(onSubmit)} className="grid md:w-8/12 mx-auto gap-2">
         <input
           type="text"
-          placeholder="Dance name"
-          {...register("danceName", { required: true, maxLength: 80 })}
+          placeholder="sport name"
+          {...register("sport", { required: true, maxLength: 80 })}
           className="input input-bordered w-full "
         />
 
@@ -76,13 +76,6 @@ const AddClass = () => {
           type="text"
           placeholder="Instructor name"
           {...register("instructorName", { required: true, maxLength: 80 })}
-          className="input input-bordered w-full "
-        />
-
-        <input
-          type="email"
-          defaultValue={user?.email}
-          {...register("email", { required: true, maxLength: 80 })}
           className="input input-bordered w-full "
         />
 
@@ -108,25 +101,6 @@ const AddClass = () => {
         />
 
         
-
-        {/* <div className="grid grid-cols-2 gap-2">
-          <select
-            {...register("category", { required: true })}
-            className="input input-bordered w-full "
-          >
-            <option value="salad">salad</option>
-            <option value="dessert">dessert</option>
-            <option value="soup">soup</option>
-            <option value="pizza">pizza</option>
-          </select>       
-        </div> */}
-
-
-        {/* <textarea
-          {...register("Details", { required: true, maxLength: 400 })}
-          className="textarea textarea-bordered"
-          placeholder="Class Details"
-        ></textarea> */}
 
         <input
           type="file"

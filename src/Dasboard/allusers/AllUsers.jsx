@@ -26,7 +26,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user-delete/${user._id}`, {
+                fetch(`https://y-nine-topaz.vercel.app/user-delete/${user._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -50,7 +50,7 @@ const AllUsers = () => {
 
     const handleMakeAdmin = id => {
         console.log(id)
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://y-nine-topaz.vercel.app/users/admin/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -71,7 +71,7 @@ const AllUsers = () => {
 
     const handleMakeInstructor = id => {
         console.log(id)
-        fetch(`http://localhost:5000/users/instructor/${id}`, {
+        fetch(`https://y-nine-topaz.vercel.app/users/instructor/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

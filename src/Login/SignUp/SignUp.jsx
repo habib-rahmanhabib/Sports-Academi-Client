@@ -29,7 +29,7 @@ const Signin = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email };
-                        fetch("http://localhost:5000/users", {
+                        fetch("https://y-nine-topaz.vercel.app/users", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json",
@@ -47,16 +47,16 @@ const Signin = () => {
                                         showConfirmButton: false,
                                         timer: 1500,
                                     });
-                                   
+
                                 }
                             });
-                            // navigate("/");
+                        // navigate("/");
                     })
                     .then((error) => {
                         console.log(error);
 
                     });
-                    navigate("/");
+                navigate("/");
             })
             .catch((error) => {
 
@@ -64,10 +64,29 @@ const Signin = () => {
             });
     };
     //   console.log(errors);
+
+    const [errorPass, setErrorPass] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const [password, setPassword] = useState("")
+    console.log(password)
+
+
+    const checkValidation = (e) => {
+        const confPass = e.target.value;
+        setConfirmPassword(confPass);
+        if (password !== confPass) {
+            setErrorPass("password don't match")
+        }
+        else {
+            setErrorPass("password don't match")
+        }
+    }
+
+
     return (
         <div>
             <Helmet>
-                <title>Dance Expressions | Signup</title>
+                <title>sport Expressions | Signup</title>
             </Helmet>
             <div className=" mt-11" data-aos="fade-up">
                 <div className=" w-10/12 md:w-4/12 lg:w-5/12 mx-auto  ">
@@ -106,6 +125,9 @@ const Signin = () => {
                                         <span className="label-text text-white">Password</span>
                                     </label>
                                     <input
+
+                                        defaultValue={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         type="password"
                                         placeholder="password"
                                         {...register("password", {
@@ -140,7 +162,11 @@ const Signin = () => {
                                         </span>
                                     </label>
                                     <input
+                                        defaultValue={confirmPassword}
+                                        onChange={(e) => checkValidation(e)}
+
                                         type="password"
+
                                         placeholder="password"
                                         {...register("confirmPassword", {
                                             required: true,
@@ -153,7 +179,12 @@ const Signin = () => {
                                         errors.confirmPassword?.type === 'required' &&
                                         <p className="text-red-500">Passwors required</p>
                                     }
+
                                     {
+                                        errors.confirmPassword?.type === 'pattern' &&
+                                        <p className="text-red-500">Don't match password</p>
+                                    }
+                                    {/* {
                                         errors.confirmPassword?.type === 'minLength' &&
                                         <p className="text-red-500">Passwors must be 6 characters</p>
                                     }
@@ -164,7 +195,7 @@ const Signin = () => {
                                     {
                                         errors.confirmPassword?.type === 'pattern' &&
                                         <p className="text-red-500">Passwors must be one uppercase one lowercase one spicial characters</p>
-                                    }
+                                    } */}
 
                                 </div>
                                 <div className="form-control">
@@ -199,7 +230,7 @@ const Signin = () => {
                                 </Link>{" "}
                             </p>
                             <div className="divider">OR</div>
-                           <SocialLogin></SocialLogin>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

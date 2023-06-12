@@ -16,7 +16,7 @@ const ClassesCart = ({ classCart }) => {
     const handleEnroll = ()=>{
         if(user && user.email){
             const enrollData = {enrollId: _id, sport, image,instructor, price, availableSeats, email: user.email }
-            fetch('http://localhost:5000/all-enroll', {
+            fetch('https://y-nine-topaz.vercel.app/all-enroll', {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'

@@ -1,5 +1,5 @@
 import { AuthContext } from "../provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialLogin from './SocialLogin';
@@ -11,6 +11,10 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    const [show, setShow] = useState(false)
+    const handlePasswordShow =()=>{
+        setShow(!show)
+    }
 
 
 
@@ -43,7 +47,7 @@ const Login = () => {
     return (
         <div>
             <Helmet>
-                <title>Dance Expressions | Login</title>
+                <title>sport Expressions | Login</title>
             </Helmet>
             <div className=" mt-11" data-aos="fade-up" >
                 <div className="  w-10/12 md:w-4/12 lg:w-5/12 mx-auto  ">
@@ -64,16 +68,19 @@ const Login = () => {
                                         className="input input-bordered text-black"
                                     />
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control relative">
                                     <label className="label">
                                         <span className="label-text text-white">Password</span>
                                     </label>
                                     <input
-                                        type="password"
+                                        type={show? "text" : "password"}
                                         placeholder="password"
                                         {...register("password", { required: true, maxLength: 80 })}
                                         className="input input-bordered text-black"
                                     />
+                                    <span onClick={handlePasswordShow} className="absolute cursor-pointer text-orange-500 font-semibold top-12 right-5">
+                                        {show? "Hide" : "Show"}
+                                    </span>
                                 </div>
                                 <div className="form-control mt-6">
                                     <input

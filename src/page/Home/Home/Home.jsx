@@ -19,6 +19,11 @@ const Home = () => {
         loop: 100,
         onLoopDone: () => console.log(`loop completed after 3 runs.`)
     })
+    const [extra] = useTypewriter({
+        words: ['All of sport', 'Enojoy and exercice'],
+        loop: 100,
+        onLoopDone: () => console.log(`loop completed after 3 runs.`)
+    })
     const [write] = useTypewriter({
         words: ['Populer class'],
         loop: 100,
@@ -38,7 +43,7 @@ const Home = () => {
             <div className="divider m-6">
                 <div className='text-center'>
                     <span className='text-3xl font-bold text-lime-300'><span className='text-black' >Instractor: </span>{text}</span>
-                    <Cursor cursorColor='red' />
+                    <Cursor cursorColor='' />
                 </div>
 
 
@@ -56,6 +61,16 @@ const Home = () => {
             </div>
 
             {/* extra section */}
+
+            <div className=" m-6">
+                <div className='text-center'>
+                    <span className='text-3xl font-bold text-lime-300'><span className='text-black' >Extra page: </span>{extra}</span>
+                    <Cursor cursorColor='' />
+                </div>
+
+
+            </div>
+
             
             <ExtraSection></ExtraSection>
 
@@ -65,7 +80,7 @@ const Home = () => {
             <div className='divider my-6'>
                 <div className='App'>
                     <h3 className='text-3xl font-bold'> Class:  <span className='text-blue-800'>{write}</span></h3>
-                    <Cursor cursorColor='green' />
+                    <Cursor cursorColor='' />
                 </div>
 
 

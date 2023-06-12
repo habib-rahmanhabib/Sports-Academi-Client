@@ -9,7 +9,7 @@ const useClass = () => {
     const [loading, setLoading]=useState(true)
     
     useEffect(()=>{
-      fetch('http://localhost:5000/class')
+      fetch('https://y-nine-topaz.vercel.app/class')
       .then(res=>res.json())
       .then(data=>{
         setLoading(false)

@@ -7,16 +7,14 @@ const Footer = () => {
 
      
 
-<footer className="footer p-10 bg-base-200 text-base-content">
+<footer className="footer p-10 bg-black text-white">
   <div>
    
   </div> 
-  <div>
-    <span className="footer-title">Company</span> 
-    <a className="link link-hover">About us</a> 
-    <a className="link link-hover">Contact</a> 
-    <a className="link link-hover">Jobs</a> 
-    <a className="link link-hover">Press kit</a>
+  <div className="text-white">
+   
+    
+    <a className="link link-hover"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAhIjy7rtEyZpJjiMTWYsiercTK50VVaki850XAk8OLw&s" alt="" /></a>
   </div> 
   <div>
     <span className="footer-title">Legal</span> 
@@ -28,7 +26,7 @@ const Footer = () => {
     <span className="footer-title">Newsletter</span> 
     <div className="form-control w-80">
       <label className="label">
-        <span className="label-text">Enter your email address</span>
+        <span className="label-text text-white">Enter your email address</span>
       </label> 
       <div className="relative">
         <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" /> 
@@ -39,7 +37,7 @@ const Footer = () => {
 </footer>
             <footer className="footer footer-center p-4 bg-base-300 text-base-content">
                 <div>
-                    <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © 2023 - All right reserved by Sports Academi Industries Ltd</p>
                 </div>
             </footer>
         </>

@@ -1,12 +1,13 @@
 
-import useMyClass from '../../hooks/useMyClass';
+
 import Swal from 'sweetalert2';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+import useMyClass from '../../hooks/useMyClass';
 
 
 const MyClasses = () => {
-    const [classes, refetch] = useMyClass();
+    const [classes, refetch] = useMyClass()
     console.log(classes)
     const total = classes.reduce((sum, item) => item.price + sum, 0)
     const handleDelete = (item)=>{
@@ -21,7 +22,7 @@ const MyClasses = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/my-classes/${item._id}`, {
+                fetch(`https://y-nine-topaz.vercel.app/my-classes/${item._id}`, {
                     method: 'DELETE'
                 })
                 .then(res => res.json())
@@ -80,7 +81,6 @@ const MyClasses = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{item.email}</td>
                   <td>{item.sport}</td>
                   <td className="">{item.price}$
                   </td>
